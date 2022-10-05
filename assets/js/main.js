@@ -28,6 +28,9 @@
       try {
         var type = 'text';
         var val = input.val();
+		if (!val) {
+			return;
+		}
         if (inputType.length) {
           type = inputType.val();
         }

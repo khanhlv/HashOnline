@@ -1,138 +1,177 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="URL online decode function">
-    <title>URL Decode Online
-    </title>
-    <script>
-      if (location.hostname != 'localhost') {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-44208259-6', 'auto');
-        ga('send', 'pageview');
-      }
-    </script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-  </head>
-  <body>
-    <div id="header">
-      <h1><a href="index.html">Online Tools</a></h1>
-    </div>
-    <div id="body">
-      <script src="js/main.js"></script>
-      <div id="main">
-        <h1>URL Decode
-        </h1>
-        <div class="description">URL online decode function
+    <head>
+        <meta charset="utf-8" />
+        
+		<title>URL Decode Online</title>
+		<link rel="dns-prefetch" href="//www.googletagservices.com" />
+		<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+		<link rel="dns-prefetch" href="//www.google-analytics.com" />
+		
+		<link rel="canonical" href="https://hash.codethoi.com/url_decode.html" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<meta name="description" content="Decode from URL-encoded format or encode into it with various advanced options. Our site has an easy to use online tool to convert your data">
+		<meta NAME="keywords" CONTENT="URL Decode online, hash function">
+		
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="URL Decode Online" />
+		<link rel="apple-touch-icon" sizes="180x180" href="https://codethoi.com/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://codethoi.com/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://codethoi.com/favicon-16x16.png">
+
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		
+        <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/js/main.js"></script>
+    </head>
+    <body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <div class="container-fluid">
+			<a class="navbar-brand" href="/">
+			  <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-top"> Code Thối
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  <div class="navbar-nav">
+				<div class="navbar-collapse collapse" id="navbarNavAltMarkup" style="">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						SHA Online
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li class="col-xs-3"><a class="dropdown-item" href="sha1.html">SHA-1</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha224.html">SHA-224</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha256.html">SHA-256</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha384.html">SHA-384</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha512.html">SHA-512</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha512_224.html">SHA-512/224</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha512_256.html">SHA-512/256</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha3_224.html">SHA3-224</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha3_256.html">SHA3-256</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha3_384.html">SHA3-384</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="sha3_512.html">SHA3-512</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						MD Online
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink1">
+							<li class="col-xs-3"><a class="dropdown-item" href="md2.html">MD2</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="md4.html">MD4</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="md5.html">MD5</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						CRC-16/32 Online
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink2">
+							<li class="col-xs-3"><a class="dropdown-item" href="crc16.html">CRC-16</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="crc32.html">CRC-32</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Keccak Online
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink2">
+							<li class="col-xs-3"><a class="dropdown-item" href="keccak224.html">Keccak-224</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="keccak256.html">Keccak-256</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="keccak384.html">Keccak-384</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="keccak512.html">Keccak-512</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Shake Online
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink3">
+							<li class="col-xs-3"><a class="dropdown-item" href="shake128.html">Shake-128</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="shake256.html">Shake-256</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Base32/64 Online
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink4">
+							<li class="col-xs-3"><a class="dropdown-item" href="base32_encode.html">Encode Base-32</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="base64_encode.html">Encode Base-64</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="base32_decode.html">Decode Base-32</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="base64_decode.html">Decode Base-64</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						HTML/URL Online
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink5">
+							<li class="col-xs-3"><a class="dropdown-item" href="html_encode.html">Encode HTML</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="url_encode.html">Encode URL</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="html_decode.html">Decode HTML</a></li>
+							<li class="col-xs-3"><a class="dropdown-item" href="url_decode.html">Decode URL</a></li>
+						</ul>
+					</li>
+				</ul>
+			  </div>
+			</div>
+		  </div>
+		</nav>
+        <div class="container">
+            <div class="rows">
+                <div class="col-md-12" style="padding: 0px;">
+                    <h1>URL Decode Online</h1>
+                    <p>Decode from URL-encoded format or encode into it with various advanced options. Our site has an easy to use online tool to convert your data</p>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="col-md-12" style="padding: 0px;">
+                    <div class="form-group">
+                        <textarea id="input" rows="7" class="form-control font-format" placeholder="Input"></textarea>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+							<input class="btn btn-primary" id="execute" type="button" value="Decode" />
+							<div class="form-check" style="display: none">
+								<input class="form-check-input" type="checkbox" value="1" checked="checked" id="auto-update">
+								<label class="form-check-label" for="auto-update">
+									Auto Update
+								</label>
+							</div>
+						</div>
+                    </div>
+				
+                    <div class="output">
+                        <textarea id="output" rows="7" class="form-control font-format" placeholder="Output"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="input">
-          <textarea id="input" placeholder="Input"></textarea>
-        </div>
-        <div class="submit">
-          <input class="btn btn-default" id="execute" type="button" value="Decode">
-          <label>
-            <input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
-          </label>
-        </div>
-        <div class="output">
-          <textarea id="output" placeholder="Output"></textarea>
-        </div>
-      </div>
-      <div id="sidebar">
-        <div class="col">
-          <ul class="menu">
-            <li>
-              <div class="menu-group">Hash</div>
-            </li>
-            <li><a href="crc16.html">CRC-16</a></li>
-            <li><a href="crc32.html">CRC-32</a></li>
-            <li><a href="md2.html">MD2</a></li>
-            <li><a href="md4.html">MD4</a></li>
-            <li><a href="md5.html">MD5</a></li>
-            <li><a href="sha1.html">SHA1</a></li>
-            <li><a href="sha224.html">SHA224</a></li>
-            <li><a href="sha256.html">SHA256</a></li>
-            <li><a href="sha384.html">SHA384</a></li>
-            <li><a href="sha512.html">SHA512</a></li>
-            <li><a href="sha512_224.html">SHA512/224</a></li>
-            <li><a href="sha512_256.html">SHA512/256</a></li>
-            <li><a href="sha3_224.html">SHA3-224</a></li>
-            <li><a href="sha3_256.html">SHA3-256</a></li>
-            <li><a href="sha3_384.html">SHA3-384</a></li>
-            <li><a href="sha3_512.html">SHA3-512</a></li>
-            <li><a href="keccak_224.html">Keccak-224</a></li>
-            <li><a href="keccak_256.html">Keccak-256</a></li>
-            <li><a href="keccak_384.html">Keccak-384</a></li>
-            <li><a href="keccak_512.html">Keccak-512</a></li>
-            <li><a href="shake_128.html">Shake-128</a></li>
-            <li><a href="shake_256.html">Shake-256</a></li>
-          </ul>
-          <ul class="menu">
-            <li>
-              <div class="menu-group">Encode</div>
-            </li>
-            <li><a href="base32_encode.html">Base32</a></li>
-            <li><a href="base32_encode_file.html">Base32 File</a></li>
-            <li><a href="base64_encode.html">Base64</a></li>
-            <li><a href="base64_encode_file.html">Base64 File</a></li>
-            <li><a href="html_encode.html">HTML</a></li>
-            <li><a href="url_encode.html">URL</a></li>
-          </ul>
-          <ul class="menu">
-            <li>
-              <div class="menu-group">Misc</div>
-            </li>
-            <li><a href="syntax_highlight.html">Syntax Highlight</a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul class="menu">
-            <li>
-              <div class="menu-group">File Hash</div>
-            </li>
-            <li><a href="crc16_checksum.html">CRC-16</a></li>
-            <li><a href="crc32_checksum.html">CRC-32</a></li>
-            <li><a href="md2_file_hash.html">MD2</a></li>
-            <li><a href="md4_file_hash.html">MD4</a></li>
-            <li><a href="md5_checksum.html">MD5</a></li>
-            <li><a href="sha1_checksum.html">SHA1</a></li>
-            <li><a href="sha224_checksum.html">SHA224</a></li>
-            <li><a href="sha256_checksum.html">SHA256</a></li>
-            <li><a href="sha384_file_hash.html">SHA384</a></li>
-            <li><a href="sha512_file_hash.html">SHA512</a></li>
-            <li><a href="sha512_224_file_hash.html">SHA512/224</a></li>
-            <li><a href="sha512_256_file_hash.html">SHA512/256</a></li>
-            <li><a href="sha3_224_checksum.html">SHA3-224</a></li>
-            <li><a href="sha3_256_checksum.html">SHA3-256</a></li>
-            <li><a href="sha3_384_checksum.html">SHA3-384</a></li>
-            <li><a href="sha3_512_checksum.html">SHA3-512</a></li>
-            <li><a href="keccak_224_checksum.html">Keccak-224</a></li>
-            <li><a href="keccak_256_checksum.html">Keccak-256</a></li>
-            <li><a href="keccak_384_checksum.html">Keccak-384</a></li>
-            <li><a href="keccak_512_checksum.html">Keccak-512</a></li>
-            <li><a href="shake_128_checksum.html">Shake-128</a></li>
-            <li><a href="shake_256_checksum.html">Shake-256</a></li>
-          </ul>
-          <ul class="menu">
-            <li>
-              <div class="menu-group">Decode</div>
-            </li>
-            <li><a href="base32_decode.html">Base32</a></li>
-            <li><a href="base32_decode_file.html">Base32 File</a></li>
-            <li><a href="base64_decode.html">Base64</a></li>
-            <li><a href="base64_decode_file.html">Base64 File</a></li>
-            <li><a href="html_decode.html">HTML</a></li>
-            <li><a href="url_decode.html">URL</a></li>
-          </ul>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <script></script>
-      <script>method = decodeURIComponent;</script>
-    </div>
-    <div id="footer">&copy; 2015-2017 Online Tools</div>
-  </body>
+		<footer class="bd-footer p-3 p-md-5 mt-5 bg-light text-center text-sm-start">
+			<div class="container">
+				<p class="mb-0">© 2022 Hash Online Tools - Codethoi</p>
+			</div>
+		</footer>
+		
+		<script>method = decodeURIComponent;</script>
+    </body>
 </html>
