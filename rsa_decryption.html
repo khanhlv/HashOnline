@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8" />
         
-		<title>SHA1 Online</title>
+		<title>RSA Decryption Online</title>
 		<link rel="dns-prefetch" href="//www.googletagservices.com" />
 		<link rel="dns-prefetch" href="//www.googletagmanager.com" />
 		<link rel="dns-prefetch" href="//www.google-analytics.com" />
 		
-		<link rel="canonical" href="https://hash.codethoi.com/sha1.html" />
+		<link rel="canonical" href="https://hash.codethoi.com/rsa_decryption.html" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<meta name="description" content="SHA1 are novel hash functions computed with eight 32-bit and 64-bit words, respectively">
-		<meta NAME="keywords" CONTENT="SHA1 online hash function">
+		<meta name="description" content="RSA Decryption Online">
+		<meta NAME="keywords" CONTENT="RSA Decryption Online">
 		
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="SHA1 Online" />
+		<meta property="og:title" content="RSA Decryption Online" />
 		<link rel="apple-touch-icon" sizes="180x180" href="https://codethoi.com/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="https://codethoi.com/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="https://codethoi.com/favicon-16x16.png">
@@ -25,7 +25,8 @@
 		
         <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="assets/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script type="text/javascript" src="assets/js/jsencrypt.min.js"></script>
+		
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-87XWW1HVP6"></script>
 		<script>
@@ -178,51 +179,47 @@
 				</div>
 			</div>
 		</nav>
-        <div class="container">
-            <div class="rows">
-                <div class="col-md-12" style="padding: 0px;">
-                    <h1>SHA1 Online</h1>
-                    <p>SHA-1 are novel hash functions computed with eight 32-bit and 64-bit words, respectively</p>
-                </div>
-            </div>
-            <div class="rows">
-                <div class="col-md-12" style="padding: 0px;">
-                    <div class="form-group">
-                        <textarea id="input" rows="7" class="form-control font-format" placeholder="Input"></textarea>
-                    </div>
-                    <div class="form-group row">
-						<div class="col-md-2">
-							<select id="input-type" class="form-control">
-								<option value="text">Text</option>
-								<option value="hex">Hex</option>
-							</select>
+        
+		<div class="container">
+			<h1 id="page-title">RSA Decryption Online</h1>
+			<hr />
+			<div id="content">
+				<p>You may generate an RSA private key with the help of this tool. Additionally, it will display the public key of a generated or pasted private key.</p>
+
+				<div class="rows">
+					<div class="col-md-12" style="padding: 0px;">
+						<div class="form-group">
+							<textarea id="privkey" rows="7" class="form-control font-format" placeholder="Private Key"></textarea>
 						</div>
-                        <div class="col-md-3">
-							<input class="btn btn-primary" id="execute" type="button" value="Hash" />
-							<div class="form-check" style="display: none">
-								<input class="form-check-input" type="checkbox" value="1" checked="checked" id="auto-update">
-								<label class="form-check-label" for="auto-update">
-									Auto Update
-								</label>
+						<div class="form-group">
+							<textarea id="input" rows="7" class="form-control font-format" placeholder="Text Encrypt"></textarea>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-3">
+								<input class="btn btn-success btn-block" id="execute" type="button" value="Decrypt" />
 							</div>
 						</div>
-                    </div>
+						<div class="output">
+							<textarea id="output" rows="7" class="form-control font-format" placeholder="Output"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			 $('#execute').click(function () {
+                // Encrypt with the public key...
+                var decrypt = new JSEncrypt();
+                decrypt.setPrivateKey($('#privkey').val());
+                var uncrypted = decrypt.decrypt($('#input').val());
 				
-                    <div class="output">
-                        <textarea id="output" rows="7" class="form-control font-format" placeholder="Output"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
+				$('#output').val(uncrypted);
+			});
+		</script>
 		<footer class="bd-footer p-3 p-md-5 mt-5 bg-light text-center text-sm-start">
 			<div class="container">
 				<p class="mb-0">© 2022 Hash Online Tools - Codethoi</p>
 			</div>
 		</footer>
-		
-		<script src="https://cdn.jsdelivr.net/gh/emn178/js-sha1/build/sha1.min.js"></script>
-        <script>
-            method = sha1;
-        </script>
     </body>
 </html>
