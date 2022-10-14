@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8" />
         
-		<title>Keccak-384 Online</title>
+		<title>CRC-32 File Checksum Online</title>
 		<link rel="dns-prefetch" href="//www.googletagservices.com" />
 		<link rel="dns-prefetch" href="//www.googletagmanager.com" />
 		<link rel="dns-prefetch" href="//www.google-analytics.com" />
 		
-		<link rel="canonical" href="https://hash.codethoi.com/keccak384.html" />
+		<link rel="canonical" href="https://hash.codethoi.com/crc32_file_checksum.html" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<meta name="description" content="Keccak-384 online hash function">
-		<meta NAME="keywords" CONTENT="Keccak-384 online hash function">
+		<meta name="description" content="CRC-32 File Checksum Online hash function">
+		<meta NAME="keywords" CONTENT="CRC-32 File Checksum Online hash function">
 		
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Keccak-384 Online" />
+		<meta property="og:title" content="CRC-32 File Checksum Online" />
 		<link rel="apple-touch-icon" sizes="180x180" href="https://codethoi.com/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="https://codethoi.com/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="https://codethoi.com/favicon-16x16.png">
@@ -216,22 +216,21 @@
         <div class="container">
             <div class="rows">
                 <div class="col-md-12" style="padding: 0px;">
-                    <h1>Keccak-384 Online</h1>
-                    <p>The creators of the Keccak algorithms and the SHA-3 functions suggest using the faster function KangarooTwelve with adjusted parameters and a new tree hashing mode without extra overhead for small message sizes</p>
+                    <h1>CRC-32 File Checksum Online</h1>
+                    <p>A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to digital data. Blocks of data entering these systems get a short check value attached, based on the remainder of a polynomial division of their contents</p>
                 </div>
             </div>
             <div class="rows">
                 <div class="col-md-12" style="padding: 0px;">
                     <div class="form-group">
-                        <textarea id="input" rows="7" class="form-control font-format" placeholder="Input"></textarea>
+                        <div id="droppable-zone">
+							<div id="droppable-zone-wrapper">
+							  <div id="droppable-zone-text">Drop File Here</div>
+							</div>
+							<input class="droppable-file" id="input" type="file" placeholder="Input2">
+						</div>
                     </div>
                     <div class="form-group row">
-						<div class="col-md-2">
-							<select id="input-type" class="form-control">
-								<option value="text">Text</option>
-								<option value="hex">Hex</option>
-							</select>
-						</div>
                         <div class="col-md-3">
 							<input class="btn btn-primary" id="execute" type="button" value="Hash" />
 							<div class="form-check" style="display: none">
@@ -251,11 +250,11 @@
         </div>
 		<footer class="bd-footer p-3 p-md-5 mt-5 bg-light text-center text-sm-start">
 			<div class="container">
-				<p class="mb-0">© 2022 Hash Online Tools - Codethoi</p>
+				<p class="mb-0">© 2022 Hash Online - Codethoi</p>
 			</div>
 		</footer>
 		
-		<script src="https://cdn.jsdelivr.net/gh/emn178/js-sha3/build/sha3.min.js"></script>
-		<script>method = keccak_384;</script>
+		<script src="https://cdn.jsdelivr.net/gh/emn178/js-crc/build/crc.min.js"></script>
+		<script>method = crc32;</script>
     </body>
 </html>
