@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCB Tool</title>
+  </head>
+  <body>
+    <script src="crypto-js.min.js"></script>
+	<script src="sha256.min.js"></script>
+	<script src="aes.min.js"></script>
+	<script src="enc-base64.min.js" ></script>
+	<script src="enc-hex.min.js"></script>
+	
+    <script>
+		
+		function convert() {
+			var salt = document.getElementById("salt").value;
+			var userType = document.getElementById("userType").value;
+			var userId = document.getElementById("directoryId").value;
+			var key = document.getElementById("value").value;
+			const hash = CryptoJS.SHA256(salt + userType + userId.padStart("10", "0") + key);
+			console.log(CryptoJS.enc.Base64.stringify(hash));
+			
+			document.getElementById("output").value = "FFIHASH" + CryptoJS.enc.Base64.stringify(hash);
+		}
+		
+		function encryption() {
+			// Fix: Use the Utf8 encoder
+			var text = CryptoJS.enc.Utf8.parse(document.getElementById("encryptText").value); 
+			// Fix: Use the Utf8 encoder (or apply in combination with the hex encoder a 32 hex digit key for AES-128)
+			var key = CryptoJS.enc.Utf8.parse(document.getElementById("encryptKey").value); 
+			
+			// Fix: Apply padding (e.g. Zero padding). Note that PKCS#7 padding is more reliable and that ECB is insecure
+			var mode = document.getElementById("encryptMode").value;
+			var blockSize = document.getElementById("encryptSize").value;
+			
+			
+			if (blockSize / 8 !== document.getElementById("encryptKey").value.length) {
+				alert("Length of secret key should be " + blockSize / 8 + " for " + blockSize + " bits key size");
+				return;
+			}
+			
+			var encrypted = CryptoJS.AES.encrypt(text, key, { mode: (mode == 'ECB' ? CryptoJS.mode.ECB : CryptoJS.mode.CBC), blockSize: blockSize}); 
+			encrypted = encrypted.ciphertext.toString(CryptoJS.enc.Base64); // CryptoJS.enc.Hex
+			console.log('encrypted', encrypted);
+			
+			document.getElementById("encryptOutput").value = encrypted;
+		}
+		
+		function decryption() {
+			// Fix: Use the Utf8 encoder
+			var text = document.getElementById("decryptText").value; 
+			// Fix: Use the Utf8 encoder (or apply in combination with the hex encoder a 32 hex digit key for AES-128)
+			var key = CryptoJS.enc.Utf8.parse(document.getElementById("decryptKey").value); 
+			
+			// Fix: Apply padding (e.g. Zero padding). Note that PKCS#7 padding is more reliable and that ECB is insecure
+			var mode = document.getElementById("decryptMode").value;
+			var blockSize = document.getElementById("decryptSize").value;
+			
+			if (blockSize / 8 !== document.getElementById("decryptKey").value.length) {
+				alert("Length of secret key should be " + blockSize / 8 + " for " + blockSize + " bits key size");
+				return;
+			}
+			
+			var decrypted = CryptoJS.AES.decrypt({ciphertext: CryptoJS.enc.Base64.parse(text)}, key, { mode: (mode == 'ECB' ? CryptoJS.mode.ECB : CryptoJS.mode.CBC), blockSize: blockSize}); 
+
+			// Fix: Utf8 decode the decrypted data
+			console.log('decrypted', decrypted.toString(CryptoJS.enc.Utf8)); 
+			
+			document.getElementById("decryptOutput").value = decrypted.toString(CryptoJS.enc.Utf8);
+		}
+    </script>
+	
+	<center>
+		<h1>OCB (Token / Pass) SHA256</h1>
+		<table>
+			<tr>
+				<td>Salt</td>
+				<td><input type="text" id="salt" value="517C27BF889E14"></td>
+			</tr>
+			<tr>
+				<td>DirectoryID</td>
+				<td><input type="text" id="directoryId" value="2"></td>
+			</tr>
+			<tr>
+				<td>UserType</td>
+				<td><input type="text" id="userType" value="1"></td>
+			</tr>
+			<tr>
+				<td>Value</td>
+				<td><textarea rows="5" cols="100" id="value">1</textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button onclick="convert()">Convert OCB SH256</button></td>
+			</tr>
+			<tr>
+				<td>Output</td>
+				<td><textarea rows="10" cols="100" id="output" readonly></textarea></td>
+			</tr>
+		</table>
+		
+		<h1>AES Encryption</h1>
+		<table>
+			<tr>
+				<td>Text</td>
+				<td><input type="text" id="encryptText" value=""></td>
+			</tr>
+			<tr>
+				<td>Key</td>
+				<td><input type="text" id="encryptKey" value="2hnahKiaL1aHhniD"></td>
+			</tr>
+			<tr>
+				<td>Mode</td>
+				<td>
+					<select id="encryptMode">
+						<option value="ECB" selected="">ECB</option>
+						<option value="CBC">CBC</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Size </td>
+				<td>
+					<select id="encryptSize">
+						<option value="128" selected="">128</option>
+						<option value="192">192</option>
+						<option value="256">256</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Output</td>
+				<td><textarea rows="5" cols="100" id="encryptOutput" readonly></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button onclick="encryption()">Encryption</button></td>
+			</tr>
+		</table>
+		
+		<h1>AES Decryption</h1>
+		<table>
+			<tr>
+				<td>Text</td>
+				<td><input type="text" id="decryptText" value=""></td>
+			</tr>
+			<tr>
+				<td>Key</td>
+				<td><input type="text" id="decryptKey" value="2hnahKiaL1aHhniD"></td>
+			</tr>
+			<tr>
+				<td>Mode</td>
+				<td>
+					<select id="decryptMode">
+						<option value="ECB" selected="">ECB</option>
+						<option value="CBC">CBC</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Size </td>
+				<td>
+					<select id="decryptSize">
+						<option value="128" selected="">128</option>
+						<option value="192">192</option>
+						<option value="256">256</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Output</td>
+				<td><textarea rows="5" cols="100" id="decryptOutput" readonly></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button onclick="decryption()">Decryption</button></td>
+			</tr>
+		</table>
+	</center>
+  </body>
+</html>
